@@ -32,6 +32,9 @@ h3{
     display: inline-block;
     width: 40%;
 }
+.errormessage{
+    background-color:red;
+}
 #tipPercentage{
     background-color: lightblue;
 }
@@ -51,6 +54,3 @@ h3{
     }
 }
 
-.errormessage{
-    background-color:red;
-}

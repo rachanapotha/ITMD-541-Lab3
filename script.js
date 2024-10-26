@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const totalBillValue = (billValue + parseFloat(tipAmountValue)).toFixed(2);
 
         if (isNaN(billValue)) {
-            alert('Please enter a valid number for Bill Total.');
+            errorMessage.innerText = 'Please enter a valid amount (non-negative number).';
             return;
         }
 

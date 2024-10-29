@@ -19,7 +19,16 @@ document.addEventListener('DOMContentLoaded', function () {
             errormessage.innerText = 'Please enter a valid amount (non-negative number).';
             return;
         }
+        if(isNaN(billTotal) || billTotal<0)){
+            errorMessage.innerText='Please enter a valid amount (non-negative number).';
+            document.getElementById('tipSlider').value='';
+            document.getElementById('totalBill').value='';
+            document.getElementById('tipPercentage').value='';
+            return
+        }
 
+
+        
         tipPercentage.value = tipPercentageValue + '%';
         tipAmount.value = tipAmountValue;
         totalBill.value = totalBillValue;

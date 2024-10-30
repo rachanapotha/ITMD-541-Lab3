@@ -1,6 +1,6 @@
 function calculateTip() {
     let amount = document.getElementById('billTotal').value;
-    const tipPercentage = parseFloat(document.getElementById('tipPercentage').value);
+    const tipPercentage = parseFloat(document.getElementById('tipRange').value);
     const currency = document.getElementById('currency').value;
     const errorMessage = document.getElementById('errorMessage');
 
@@ -18,7 +18,7 @@ function calculateTip() {
     console.log(amount);
     amount = parseFloat(amount);
     // Calculate the tip amount in USD
-    let tipAmount = (amount * tipPercentage) / 100;
+    let tipAmount = (amount * tipRange) / 100;
     let totalAmount = amount + tipAmount;
 
     let conversionRate =1;

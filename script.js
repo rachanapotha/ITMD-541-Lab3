@@ -30,7 +30,7 @@ function calculateTip() {
 
     // Convert tip and total amounts to selected currency
     tipAmount = tipAmount * conversionRate;
-    totalAmount = totalAmount * conversionRate;
+    totalAmount = totalBill * conversionRate;
 
     //display values
     document.getElementById('tipValue').innerText = tipRange;

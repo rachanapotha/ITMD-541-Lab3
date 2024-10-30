@@ -15,7 +15,7 @@
         <div class = "calculator">
         <!-- input for amount -->
             <label for="amount">Bill Total:</label>
-            <input type="text" id="amount" name="amount" value="15" oninput="calculateTip()" >
+            <input type="text" id="amount" name="amount" oninput="calculateTip()" >
         <!-- error message -->
             <div id="errorMessage" class="error-message"></div>
         <!-- conversion -->
@@ -34,7 +34,7 @@
         <br>
         <br>
         <label for="tipRange">Tip Range : <span id="tipValue">15</span>%</label>
-        <input type="range" id="tipRange" min="0" max="100" oninput="calculateTip()">
+        <input type="range" id="tipRange" min="0" max="100" value="15" oninput="calculateTip()">
         <br>
         <br>
         

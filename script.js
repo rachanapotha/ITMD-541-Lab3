@@ -1,6 +1,6 @@
 function calculateTip() {
-    let amount = document.getElementById('billTotal').value;
-    const tipPercentage = parseFloat(document.getElementById('tipRange').value);
+    let amount = document.getElementById('amount').value;
+    const tipRange = parseFloat(document.getElementById('tipRange').value);
     const currency = document.getElementById('currency').value;
     const errorMessage = document.getElementById('errorMessage');
 
@@ -33,8 +33,8 @@ function calculateTip() {
     totalAmount = totalAmount * conversionRate;
 
     //display values
-    document.getElementById('tipValue').innerText = tipPercentage;
+    document.getElementById('tipValue').innerText = tipRange;
     document.getElementById('tipAmount').value = tipAmount.toFixed(2) 
     document.getElementById('totalAmount').value = totalAmount.toFixed(2) 
-    document.getElementById('tipPercentage').value = tipPercentage; 
+    document.getElementById('tipPercentage').value = tipRange; 
 }

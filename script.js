@@ -11,7 +11,7 @@ function calculateTip() {
     if (isNaN(amount) ||  amount < 0) {
         errorMessage.innerText = 'Please enter a valid amount (non-negative number).';
         document.getElementById('tipAmount').value = '';
-        document.getElementById('totalBill').value = '';
+        document.getElementById('totalAmount').value = '';
         document.getElementById('tipPercentage').value = '';
         return;
     }   
@@ -30,7 +30,7 @@ function calculateTip() {
 
     // Convert tip and total amounts to selected currency
     tipAmount = tipAmount * conversionRate;
-    totalAmount = totalBill * conversionRate;
+    totalAmount = totalAmount * conversionRate;
 
     //display values
     document.getElementById('tipValue').innerText = tipRange;

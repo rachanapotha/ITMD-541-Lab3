@@ -1,29 +1,40 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('form');
-    const billTotal = document.getElementById('billTotal');
-    const tipPercentage = document.getElementById('tipPercentage');
-    const tipAmount = document.getElementById('tipAmount');
-    const totalBill = document.getElementById('totalBill');
-    const tipRange = document.getElementById('tipRange');
+function calculateTip() {
+    let amount = document.getElementById('billTotal').value;
+    const tipPercentage = parseFloat(document.getElementById('tipPercentage').value);
+    const currency = document.getElementById('currency').value;
+    const errorMessage = document.getElementById('errorMessage');
 
-    form.addEventListener('input', updateTipValues);
-    form.addEventListener('change', updateTipValues);
+    // Clear previous error message
+    errorMessage.innerText = '';
 
-    function updateTipValues() {
-        const billValue = parseFloat(billTotal.value);
-        const tipPercentageValue = tipRange.value;
-        const tipAmountValue = (billValue * (tipPercentageValue / 100)).toFixed(2);
-        const totalBillValue = (billValue + parseFloat(tipAmountValue)).toFixed(2);
+    // Validate the amount: it should be a non-negative number
+    if (isNaN(amount) ||  amount < 0) {
+        errorMessage.innerText = 'Please enter a valid amount (non-negative number).';
+        document.getElementById('tipAmount').value = '';
+        document.getElementById('totalBill').value = '';
+        document.getElementById('tipPercentage').value = '';
+        return;
+    }   
+    console.log(amount);
+    amount = parseFloat(amount);
+    // Calculate the tip amount in USD
+    let tipAmount = (amount * tipPercentage) / 100;
+    let totalAmount = amount + tipAmount;
 
-        if (isNaN(billValue)) {
-            errormessage.innerText = 'Please enter a valid amount (non-negative number).';
-            return;}
-            
-
-
-        
-        tipPercentage.value = tipPercentageValue + '%';
-        tipAmount.value = tipAmountValue;
-        totalBill.value = totalBillValue;
+    let conversionRate =1;
+    if (currency === 'INR') {
+        conversionRate = 84.07; // Conversion rate from USD to INR
+    } else if (currency === 'JPY') {
+        conversionRate = 149.34; // Conversion rate from USD to JPY
     }
+
+    // Convert tip and total amounts to selected currency
+    tipAmount = tipAmount * conversionRate;
+    totalAmount = totalAmount * conversionRate;
+
+    //display values
+    document.getElementById('tipValue').innerText = tipPercentage;
+    document.getElementById('tipAmount').value = tipAmount.toFixed(2) 
+    document.getElementById('totalAmount').value = totalAmount.toFixed(2) 
+    document.getElementById('tipPercentage').value = tipPercentage; 
 }

@@ -12,42 +12,41 @@
     <div class = "container">
     <h3>ITMD 541 - LAB 3 - RACHANA POTHAM</h3>
     <h1>Tip Calculator</h1>
-    <form action="" method="post">
-        <label for="billTotal">Bill Total:</label>
-        <input type="text" id="billTotal" name="billTotal" required>
-        
-        <br>
-        <br>
-    <div id="errormessage">
+        <div class = "calculator">
+        <!-- input for amount -->
+            <label for="billTotal">Bill Total:</label>
+            <input type="text" id="billTotal" name="billTotal"  oninput="calculateTip()" required>
+        <!-- error message -->
+            <div id="errormessage"></div>
+        <!-- conversion -->
         <div id="conversion" class="conversion">
             <p> $1 USD = 149.34 JPY for Yen</p>
             <p> $1 USD = 84.07 INR for Rupee</p>
         </div>
-    </div>
+        <!-- dropdown -->
         <label for="currency">Select Currency:</label>
         <select id="currency" onchange="calculateTip()">
-            <option value="USD">Dollars (USD)</option>
+            <option value="USD">Dollars ($)</option>
             <option value="INR">Indian Rupees (₹)</option>
             <option value="JPY">Japanese Yen (¥)</option>
         </select>
-        <br>
-        <br>
+         <!--Tip range  -->
         <label for="tipRange">Tip:</label>
         <input type="range" id="tipRange" name="tipRange" min="0" max="100">
-        <br>
-        <br>
+        
+        <!--Tip -->
         <label for="tip">Tip Percentage:</label>
         <input type="text" id="tipPercentage" name="tipPercentage" disabled class="disabled">
-        <br>
-        <br>
+         
+        <!-- tip amount -->
         <label for="tipSlider">Tip Amount:</label>
         <input type="text" id="tipAmount" name="tipAmount" disabled class="disabled">
-        <br>
-        <br>
+         
+        <!--total bill  -->
         <label for="totalBill">Total Bill with Tip:</label>
         <input type="text" id="totalBill" name="totalBill" disabled class="disabled">
-        <br>
-    </form>
+            
+        </div>
 </div>
 </body>
 </html>
